@@ -1,8 +1,6 @@
 export interface ApiResponse {
     content: TransferenciaData[],
-    pageable: {
-        totalPages: number
-    }
+    totalPages: number
 }
 
 export interface TransferenciaData {
