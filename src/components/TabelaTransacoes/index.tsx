@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import { ApiResponse, TransferenciaData } from '../../interface/transferenciaData'
+import styles from './styles.module.scss'
+import { useEffect, useState } from 'react'
+import { ApiResponse } from '../../interface/transferenciaData'
 
 export interface TabelaTransacoesProps {
     dataInicio: string,
@@ -34,7 +35,7 @@ export default function TabelaTransacoes({ dataInicio, dataTermino, nome }: Tabe
   return (
     apiResponse && 
     <>
-    <table className="tabela-transacoes">
+    <table className={styles.tabelaTransacoes}>
         <thead>
           <tr>
             <th>Dados</th>
@@ -55,7 +56,7 @@ export default function TabelaTransacoes({ dataInicio, dataTermino, nome }: Tabe
           }
         </tbody>
       </table>
-    <div className="botoes-paginas">
+    <div className={styles.botoesPaginas}>
         <button onClick={() => handlePageChange(page - 1)} className="previous" disabled={ page === 0 }>&laquo;</button>
         <button onClick={() => handlePageChange(page + 1)} className="next" disabled={ page >= apiResponse?.totalPages - 1 }>&raquo;</button>
       </div>

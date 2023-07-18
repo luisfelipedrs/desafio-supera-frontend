@@ -1,8 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+import styles from './styles.module.scss'
 import './App.css'
-import { ApiResponse, TransferenciaData } from './interface/transferenciaData'
-import Saldo from './components/Saldo/Saldo';
+import Saldo from './components/Saldo';
 import TabelaTransacoes from './components/TabelaTransacoes';
+import "react-datepicker/dist/react-datepicker.css";
+
 
 function App() {
 
@@ -13,30 +15,33 @@ function App() {
   const [dataTerminoInput, setDataTerminoInput] = useState("");
 
   return (
-  <div className="container">
+  <div className={styles.container}>
 
-    <form className="dados-pesquisa-form">
-      <label>
+    <title>Tabela de transações</title>
+
+    <form className={styles.dadosPesquisaForm}>
+      <label className={styles.inputLabel}>
         Data de início:
-        <input type="text" name="dataInicio" onChange={(e) => setDataInicioInput(e.target.value)} value={ dataInicioInput }/>
+        <input className={styles.inputField} type="text" name="dataInicio" onChange={(e) => setDataInicioInput(e.target.value)} value={ dataInicioInput }/>
       </label>
-      <label>
+      <label className={styles.inputLabel}>
         Data de término:
-        <input type="text" name="dataTermino" onChange={(e) => setDataTerminoInput(e.target.value)} value={ dataTerminoInput }/>
+        <input className={styles.inputField} type="text" name="dataTermino" onChange={(e) => setDataTerminoInput(e.target.value)} value={ dataTerminoInput }/>
       </label>
-      <label>
+      <label className={styles.inputLabel}>
         Nome do operador transacionado:
-        <input type="text" name="nome" onChange={(e) => setNome(e.target.value)} value={ nome }/>
+        <input className={styles.inputField} type="text" name="nome" onChange={(e) => setNome(e.target.value)} value={ nome }/>
       </label>
     </form>
 
-    <div className="botao-container">
-      <button className="botao-pesquisar" onClick={() => { setDataInicio(dataInicioInput); setDataTermino(dataTerminoInput) }}>Pesquisar</button>
+    <div className={styles.botaoContainer}>
+      <button className={styles.botaoLimpar} onClick={() => { setDataInicioInput(""); setDataTerminoInput(""); setNome(""); }}>Limpar</button>
+      <button className={styles.botaoPesquisar} onClick={() => { setDataInicio(dataInicioInput); setDataTermino(dataTerminoInput) }}>Pesquisar</button>
     </div>
 
-    <div className="table-container">
+    <div className={styles.tableContainer}>
 
-      <div className="saldo-text-container">
+      <div className={styles.saldoTextContainer}>
         <Saldo title='Saldo total'/>
         <Saldo title='Saldo no período' dataInicio={ dataInicio } dataTermino={ dataTermino }/>
       </div>

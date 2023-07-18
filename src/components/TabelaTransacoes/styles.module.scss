@@ -1,0 +1,30 @@
+.tabelaTransacoes {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.tabelaTransacoes th {
+    background-color: #09923e;
+    color: white;
+    padding: 10px;
+}
+
+.tabelaTransacoes td {
+    border: 2px solid #b4b3b3;
+    padding: 10px 20px 10px 10px;
+}
+
+.botoesPaginas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    gap: 10px;
+}
+
+.botoesPaginas button {
+    padding: 5px 20px 5px 20px;
+    font-size: 30px;
+    border-radius: 10px;
+    border: 0;
+}

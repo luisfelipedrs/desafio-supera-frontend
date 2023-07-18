@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import styles from './styles.module.scss'
+import { useEffect, useState } from 'react'
+import { NumericFormat } from 'react-number-format';
 
 
 export interface SaldoProps {
@@ -25,6 +27,7 @@ export default function Saldo({ title, dataInicio, dataTermino }: SaldoProps) {
       }, [dataInicio, dataTermino])
       
   return (
-    <h2>{ title }: R$ { saldo } </h2>
+    
+    <p className={styles.text}>{ title }: <NumericFormat value={ saldo.toFixed(2) } displayType='text' thousandSeparator={true} prefix={'R$ '}/></p>
   )
 }
