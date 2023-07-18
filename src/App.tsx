@@ -17,8 +17,6 @@ function App() {
   return (
   <div className={styles.container}>
 
-    <title>Tabela de transações</title>
-
     <form className={styles.dadosPesquisaForm}>
       <label className={styles.inputLabel}>
         Data de início:
